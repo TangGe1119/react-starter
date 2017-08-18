@@ -78,6 +78,22 @@ module.exports = {
             template: 'src/index.tpl.html',
             inject: 'body'
         }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            minChunks: function (module, count) {
+                return (
+                    module.resource &&
+                    /\.js$/.test(module.resource) &&
+                    module.resource.indexOf(
+                        path.join(__dirname, './node_modules')
+                    ) === 0
+                )
+            }
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            chunks: ['vendor']
+        }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"development"',
         }),
