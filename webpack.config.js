@@ -8,6 +8,7 @@ module.exports = {
     entry: {
         app: [
             'babel-polyfill', 
+            'react-hot-loader/patch',
             './src/index.js'
         ]
     },
@@ -60,19 +61,15 @@ module.exports = {
         },
         extensions: ['.js', '.jsx', '.styl']
     },
-    devtool: 'eval-source-map',
+    devtool: 'eval',
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
         historyApiFallback: true,
-        open: true,
-        openPage: '',
-        port: port,
-        proxy: {
-            // '/api': 'http://localhost:3000'
-        }
+        port: port
     },
     plugins: [
+        // new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'src/index.tpl.html',
@@ -89,10 +86,6 @@ module.exports = {
                     ) === 0
                 )
             }
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            chunks: ['vendor']
         }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': '"development"',

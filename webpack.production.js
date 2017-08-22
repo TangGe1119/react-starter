@@ -99,10 +99,6 @@ module.exports = {
                 )
             }
         }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            chunks: ['vendor']
-        }),
         new CleanWebpackPlugin(['dist'])
     ]
 }
