@@ -43,14 +43,14 @@ module.exports = {
                 loader: 'url-loader',
                 query: {
                     limit: 10000,
-                    name: '/images/[name].[ext]'
+                    name: 'images/[name].[ext]'
                 }
             }, {
                 test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
                 loader: 'url-loader',
                 query: {
                     limit: 10000,
-                    name: '/fonts/[name].[ext]'
+                    name: 'fonts/[name].[ext]'
                 }
             }
         ]

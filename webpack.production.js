@@ -51,14 +51,14 @@ module.exports = {
             loader: 'url-loader',
             query: {
                 limit: 10000,
-                name: '/images/[name].[hash:8].[ext]'
+                name: 'images/[name].[hash:8].[ext]'
             }
         }, {
             test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
             loader: 'url-loader',
             query: {
                 limit: 10000,
-                name: '/fonts/[name].[hash:8].[ext]'
+                name: 'fonts/[name].[hash:8].[ext]'
             }
         }]
     },
